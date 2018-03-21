@@ -1,4 +1,6 @@
 ﻿body {
+    padding:0;
+	margin:0;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -21,4 +23,241 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.social-icon {     
+    width: 64px;     
+    height: 64px;        
+    display: inline-block;     
+    margin-right: 10px;
+} 
+.facebook {
+    background-image: url('../Images/Icon/Icon_64x64/ico_facebook.png');
+}
+.vk {
+    background-image: url('../Images/Icon/Icon_64x64/ico_vk.png');
+}
+.google {
+    background-image: url('../Images/Icon/Icon_64x64/ico_google.png');
+}
+.linked {
+    background-image: url('../Images/Icon/Icon_64x64/ico_linked.png');
+}
+.inst {
+    background-image: url('../Images/Icon/Icon_64x64/ico_instagram.png');
+}
+.ok {
+    background-image: url('../Images/Icon/Icon_64x64/ico_ok.png');
+}
+.twit {
+    background-image: url('../Images/Icon/Icon_64x64/ico_twitter.png');
+}
+.youtube {
+    background-image: url('../Images/Icon/Icon_64x64/ico_youtube.png');
+}
+
+.social-icon-32 {     
+    width: 32px;     
+    height: 32px;        
+    display: inline-block;     
+    margin-right: 10px;
+}
+.facebook-32 {
+    background-image: url('../Images/Icon/Icon_32x32/facebook.png');
+}
+.vk-32 {
+    background-image: url('../Images/Icon/Icon_32x32/ico_vk.png');
+}
+button {  
+    margin: 0px 0px 0px 30px; /*отступ от верхнего края, левого, нижнего, правого.*/
+    /*margin-left: 40px;
+    margin-top: 30px; Отступ сверху */
+	cursor: pointer;/*изменяет курсор при наведении на кнопку*/
+	color: #e4e4e4;/* Цвет шрифта */ 
+	font-size: 14px;/* Размер шрифта */ 
+	background-color: #a45f93;/* Цвет фона */
+	background-repeat: no-repeat;
+    background-image: -ms-linear-gradient(top, #b76da5, #a45f93);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b76da5), to(#a45f93));
+    background-image: -webkit-linear-gradient(top, #b76da5, #a45f93);
+    background-image: -o-linear-gradient(top, #b76da5, #a45f93);
+    background-image: linear-gradient(top, #b76da5, #a45f93);
+    background-image: -moz-linear-gradient(top, #b76da5, #a45f93);
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#b76da5', endColorstr='#a45f93', GradientType=0);
+	border: none;/* Параметры рамки кнопки */
+	padding: 5px 10px 5px 10px;/* Поля вокруг текста */
+    text-align: center; /* Надпись на кнопке по центру */
+	box-shadow: 0 5px 5px rgba(0,0,0,0.3), inset 0 3px 0 rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.3), inset 0 3px 0 rgba(255,255,255,0.5);
+	-moz-box-shadow: 0 5px 5px rgba(0,0,0,0.3), inset 0 3px 0 rgba(255,255,255,0.5);
+	text-shadow: rgba(0,0,0,0.3);
+	height: auto;/*высота кнопки*/
+    width:100px;/*ширина кнопки*/
+    }
+button:hover{  
+   border-color: rgba(82, 168, 236, 0.8);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+   outline: 0 none;    
+}
+.block-btn-social-icon{
+    float:right; /*выравниваем блок по левому краю.*/
+    margin: 50px 150px 50px 150px;/*отступ от верхнего края, левого, нижнего, правого.*/
+    /*text-align:center;*/
+}
+/*Секция для обрезки большого текста в постах Вконтакте*/
+.feelVK {
+    overflow: hidden;
+    height: 200px;
+    width: 300px;
+    line-height: 25px;
+}
+
+.feelVK:before {
+    content: "";
+    float: left;
+    width: 5px;
+    height: 200px;
+}
+
+.feelVK > *:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px;
+}		
+
+.feelVK:after {
+    content: "\02026";
+    box-sizing: content-box;
+    float: right;
+    position: relative;
+    top: -25px;
+    left: 100%; 
+    width: 3em;
+    margin-left: -3em;
+    padding-right: 5px;	
+    text-align: right;
+    background-size: 100% 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+}
+
+/*Стиль логотипа*/
+.logo {
+	display: inline-block;
+	float: left;
+	font-weight: bold;
+    margin-top: 6px;/* Отступ сверху */
+}
+
+.logo a {
+	text-decoration: none;
+	font-size: 24px;
+	text-shadow: 0 1px 0 white;
+	color: #145892;
+	padding-left: 10px;
+}
+
+.logo a:hover {
+	color: #a45f93;
+}
+
+*:first-child+html .logo a {
+	line-height: normal;
+}
+
+.pink {
+	color: #a45f93;
+}
+
+.logo a:hover .pink {
+	color: #8b95a4;
+}
+
+.gray {
+	color: #8b95a4;
+	font-size: 24px;
+}
+.logo a:hover .gray {
+	color: #145892;
+}
+
+/*Блок представляющий потенциальные возможности агрегатора*/
+.block_funtional {
+    margin: 20px 0px 5px 0px;/*отступ от верхнего края, левого, нижнего, правого.*/
+	padding: 10px;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border: 1px solid #e4e4e4;
+	background-color: #475363;
+	background-color: rgb(238, 238, 240);
+	overflow: hidden;
+}
+
+.block_functional > p {
+    margin: 0px 20px 0px 20px;/*отступ от верхнего края, левого, нижнего, правого.*/
+}
+.img_center{
+    margin-left: 70px;
+}
+.profile{
+    margin: 8px 0px -10px 1px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #080808;
+}
+
+/*Липкое меню*/
+.fixed{
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100%;
+}
+.shadow{
+    -webkit-box-shadow:0px 7px 17px -2px rgba(117,117,177,1);
+    -moz-box-shadow:0px 7px 17px -2px rgba(117,117,177,1);
+    box-shadow:0px 7px 17px -2px rgba(117,117,177,1); 
+}
+.show-navPos,
+.show-winPos {
+  position:fixed;
+  top:50px;
+  right:50px;
+  background:red;
+  color:#fff;
+}
+
+.show-winPos {
+  background-color: blue;
+  top:100px;
+}
+
+.nav-menu{
+    margin: 0px 10px 0px 15px;/*отступ от верхнего края, левого, нижнего, правого.*/
+    font-size: 26px;/*размер шрифта*/
+}
+
+.detail {
+    display:flex;
+    align-items: center;
+    flex-direction:column;
+    width:90%
+}
+.detail img{
+    border-radius: 50%;
+    width: 100px;
+    height:100px;
+
+}
+.detail h3{
+
+}
+
+.contTable{
+    width: 1000px;
+    border: 0;
+    border-radius:5px;
+    /*display:none;
+    var contTable = $('.contTable');
+    $contTable.show();*/
 }

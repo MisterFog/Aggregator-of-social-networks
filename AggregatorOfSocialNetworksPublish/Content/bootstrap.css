@@ -35,11 +35,43 @@ section,
 summary {
   display: block;
 }
-
+canvas{
+    height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+    /*background:;*/
+	z-index: 5;
+}
 audio,
-canvas,
 video {
-  display: inline-block;
+    /*display: inline-block;*/
+    height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background: #000;
+	z-index: 5;
+}
+.video-responsive {
+	padding-bottom: 56.25%;
+	position: relative;
+	width: 100%;
+}
+#over_video{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	z-index: 10;
+	font-size: 28px;
+	color: #FFF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin-top: 80px;
+    text-shadow: 4px 4px 4px #5C433B;
 }
 
 audio:not([controls]) {
@@ -219,7 +251,8 @@ textarea {
   vertical-align: top;
 }
 
-table {
+table {  
+  margin: 0px 0px 0px -40px;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -352,7 +385,7 @@ a:focus {
 }
 
 img {
-  vertical-align: middle;
+  vertical-align: middle;  
 }
 
 .img-responsive {
@@ -401,7 +434,7 @@ hr {
 }
 
 p {
-  margin: 0 0 10px;
+  margin: 0px 30px 0px 30px;
 }
 
 .lead {
@@ -3244,7 +3277,7 @@ input[type="button"].btn-block {
   margin: 2px 0 0;
   font-size: 14px;
   list-style: none;
-  background-color: #ffffff;
+  background-color: #504c4c;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -3842,7 +3875,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eeeeee;
+  background-color: #504c4c;
   border-color: #428bca;
 }
 
@@ -4934,7 +4967,7 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: rgba(72, 20, 111, 0.65);
 }
 
 .jumbotron h1 {
@@ -4948,6 +4981,7 @@ a.list-group-item.active > .badge,
 
 .container .jumbotron {
   border-radius: 6px;
+
 }
 
 @media screen and (min-width: 768px) {
@@ -5255,10 +5289,10 @@ a.thumbnail:focus {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 5px 0px;
   margin-bottom: -1px;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
+  background-color: rgba(221, 221, 221, 0.8);
+  border: 1px solid rgba(109, 8, 84, 0.9);
 }
 
 .list-group-item:first-child {
@@ -5547,6 +5581,9 @@ a.list-group-item:focus {
 }
 
 .well {
+    /*overflow: hidden;
+    height: 300px;
+    width: 300px;*/
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
@@ -5658,7 +5695,7 @@ body.modal-open,
   background-clip: padding-box;
 }
 
-.modal-backdrop {
+/*.modal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -5676,7 +5713,7 @@ body.modal-open,
 .modal-backdrop.in {
   opacity: 0.5;
   filter: alpha(opacity=50);
-}
+}*/
 
 .modal-header {
   min-height: 16.428571429px;
