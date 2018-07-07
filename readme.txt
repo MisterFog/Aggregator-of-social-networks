@@ -1,0 +1,1 @@
+You must create Facebook and VK applications and insert their keys into a file Web.config
