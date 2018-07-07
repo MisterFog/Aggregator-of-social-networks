@@ -18,10 +18,11 @@ function onVKnews() {
 function buildNewsVK(feed) {
     console.log(feed);
     let output = '<h3>Мои новости Vkontakte:</h3>';
-
+    
     for (let i in feed.response.items) {
-        if (feed.response.items[i].source_id) {
-
+        //console.log('Проверка items[]: ' + feed.response.items[i]);
+        //console.log('Проверка groups[]: ' + feed.response.groups[i]);
+        if (feed.response.items[i].source_id) {            
             // преобразуем время unixtime в гринвич
             feed.response.items[i].time = new Date(feed.response.items[i].date * 1000);
 
@@ -143,64 +144,73 @@ function buildNewsVK(feed) {
             }
 
             if (feed.response.items[i].type == "post") {
-                if (feed.response.items[i].attachment.type == "photo") {
-                    for (let c in feed.response.profiles) {
-                        if (feed.response.items[i].source_id == feed.response.profiles[c].uid) {
-                            output += `
-                            <div class ="well">
-                                <ul class ="list-group">
-                                    <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
-                                    <li class ="list-group-item">Avtor: ${feed.response.profiles[c].first_name} ${feed.response.profiles[c].last_name}
-                                    <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
-                                    <img src="${feed.response.items[i].attachment.photo.src}" style="width: avto; height: avto">
-                                </ul>
-                            </div>
-                        `;
+                //console.log('Проверка items[' + i + ']: ');
+                //console.log(feed.response.items[i]);
+                if (feed.response.items[i].attachment) {
+                    if (feed.response.items[i].attachment.type == "photo") {
+                        for (let c in feed.response.profiles) {
+                            if (feed.response.items[i].source_id == feed.response.profiles[c].uid) {
+                                output += `
+                                <div class ="well">
+                                    <ul class ="list-group">
+                                        <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
+                                        <li class ="list-group-item">Avtor: ${feed.response.profiles[c].first_name} ${feed.response.profiles[c].last_name}
+                                        <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
+                                        <img src="${feed.response.items[i].attachment.photo.src}" style="width: avto; height: avto">
+                                    </ul>
+                                </div>
+                            `;
+                            }
+                        }
+                        for (let c in feed.response.groups) {
+                            if (feed.response.items[i].source_id == -feed.response.groups[c].gid) {
+                                output += `
+                                <div class ="well">
+                                    <ul class ="list-group">
+                                        <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
+                                        <li class ="list-group-item">Avtor: ${feed.response.groups[c].name}
+                                        <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
+                                        <img src="${feed.response.items[i].attachment.photo.src}" style="width: avto; height: avto">
+                                    </ul>
+                                </div>
+                            `;
+                            }
                         }
                     }
-                    for (let c in feed.response.groups) {
-                        if (feed.response.items[i].source_id == -feed.response.groups[c].gid) {
-                            output += `
-                            <div class ="well">
-                                <ul class ="list-group">
-                                    <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
-                                    <li class ="list-group-item">Avtor: ${feed.response.groups[c].name}
-                                    <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
-                                    <img src="${feed.response.items[i].attachment.photo.src}" style="width: avto; height: avto">
-                                </ul>
-                            </div>
-                        `;
+                    if (feed.response.items[i].attachment.type == "link") {
+                        for (let c in feed.response.profiles) {
+                            if (feed.response.items[i].source_id == feed.response.profiles[c].uid) {
+                                output += `
+                                <div class ="well">
+                                    <ul class ="list-group">
+                                        <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
+                                        <li class ="list-group-item">Avtor: ${feed.response.profiles[c].first_name} ${feed.response.profiles[c].last_name}
+                                        <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
+                                        <img src="${feed.response.items[i].attachment.image_src}" style="width: avto; height: avto">
+                                    </ul>
+                                </div>
+                            `;
+                            }
+                        }
+                        for (let c in feed.response.groups) {
+                            if (feed.response.items[i].source_id == -feed.response.groups[c].gid) {
+                                output += `
+                                <div class ="well">
+                                    <ul class ="list-group">
+                                        <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
+                                        <li class ="list-group-item">Avtor: ${feed.response.groups[c].name}
+                                        <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
+                                        <img src="${feed.response.items[i].attachment.image_src}" style="width: avto; height: avto">
+                                    </ul>
+                                </div>
+                            `;
+                            }
                         }
                     }
                 }
-                if (feed.response.items[i].attachment.type == "link") {
+                else {
                     for (let c in feed.response.profiles) {
-                        if (feed.response.items[i].source_id == feed.response.profiles[c].uid) {
-                            output += `
-                            <div class ="well">
-                                <ul class ="list-group">
-                                    <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
-                                    <li class ="list-group-item">Avtor: ${feed.response.profiles[c].first_name} ${feed.response.profiles[c].last_name}
-                                    <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
-                                    <img src="${feed.response.items[i].attachment.image_src}" style="width: avto; height: avto">
-                                </ul>
-                            </div>
-                        `;
-                        }
-                    }
-                    for (let c in feed.response.groups) {
-                        if (feed.response.items[i].source_id == -feed.response.groups[c].gid) {
-                            output += `
-                            <div class ="well">
-                                <ul class ="list-group">
-                                    <li class ="list-group-item">Time: ${feed.response.items[i].time.toLocaleString()}
-                                    <li class ="list-group-item">Avtor: ${feed.response.groups[c].name}
-                                    <li class ="list-group-item" style="overflow: hidden; height: 300px; ">Post: ${feed.response.items[i].text}
-                                    <img src="${feed.response.items[i].attachment.image_src}" style="width: avto; height: avto">
-                                </ul>
-                            </div>
-                        `;
-                        }
+                        console.log('Проверка items[' + c + ']: ');
                     }
                 }
             }
